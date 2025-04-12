@@ -394,7 +394,7 @@ def generate_stackplot_visualization(K, payoff_matrices, lambda_values, u, v, x0
 
     # Save to buffer and encode as base64
     buffer = BytesIO()
-    plt.savefig(buffer, format='png', bbox_inches='tight', dpi=1000)
+    plt.savefig(buffer, format='png', bbox_inches='tight', dpi=300)
     buffer.seek(0)
     image_base64 = base64.b64encode(buffer.read()).decode('utf-8')
     
