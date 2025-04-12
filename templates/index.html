@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolutionary Dynamics with Vector Payoffs</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <!-- External Libraries -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- MathJax Configuration -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                packages: {'[+]': ['ams']}, 
+                processEscapes: true 
+            },
+            options: {
+                enableMenu: false,
+                skipHtmlTags: {'[+]': ['script', 'noscript', 'style', 'textarea', 'pre']},
+                renderActions: {
+                    addMenu: [0, function () {}, '']
+                }
+            }
+        };
+    </script>
+    <script>
+      window.onload = function() {
+        MathJax.typeset();
+      };
+    </script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="wrapper">
+        <a class="logo" href="/">
+            <img src="/static/face.jpg" alt="Logo">
+            <div>
+                <span class="title">Chen Group & Fu Lab</span>
+                <span class="slogan">EGT, AI, and Mathematical Humanities</span>
+            </div>
+        </a>
+        <nav>
+            <a href="https://github.com/fufeng">Github</a>
+            <a href="https://mhl.host.dartmouth.edu/">Lab Homepage</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <article class="project">
+        <!-- Paper Title and Authors Section -->
+        <div class="cover">
+            <div class="wrapper">
+                <h1>Evolutionary Dynamics of Multiplex Games <br> with Vector Payoff</h1>
+                
+                <p class="authors">
+                    <span class="author"><a target="_blank" href="https://scholar.google.com/citations?user=r12535oAAAAJ&hl=en&oi=ao">Yuxin Geng$^{1^{\ast}}$</a></span> 
+                    <span class="author"><a target="_blank" href="https://faculty-directory.dartmouth.edu/feng-fu">Feng Fu$^{2,3^{~\ast}}$</a></span> 
+                    <span class="author"><a target="_blank" href="https://www.martinnowak.com/">Martin A. Nowak$^{4,5^{~\ast}}$</a></span>
+                    <span class="author"><a target="_blank" href="https://scholar.google.com/citations?user=Gx-WNoIAAAAJ&hl=en">Xingru Chen$^{1^{\ast}}$</a></span> 
+                </p>
+                
+                <p class="affiliations">
+                    <span class="affiliation">$^1$ School of Science, Beijing University of Posts and Telecommunications, Beijing 100876, China.</span><br>
+                    <span class="affiliation">$^2$ Department of Mathematics, Dartmouth College, Hanover, 03756, NH, USA.</span><br>
+                    <span class="affiliation">$^3$ Department of Biomedical Data Science, Geisel School of Medicine at Dartmouth, Hanover 03755, NH, USA.</span><br>
+                    <span class="affiliation">$^4$ Department of Mathematics, Harvard University, Cambridge, MA, USA.</span><br>
+                    <span class="affiliation">$^5$ Department of Organismic and Evolutionary Biology, Harvard University, Cambridge, MA, USA.</span>
+                </p>
+
+                <p>$ $</p>
+                
+                <p class="venues">
+                    Working Paper
+                </p>
+                
+                <div class="image"><img src="/static/figures/figure_1_web.png" /></div>
+                
+                <p class="buttons">
+                    <a href="https://google.com" target="_blank">Paper</a>
+                    <a href="https://google.com" target="_blank">Code</a>
+                    <a href="https://google.com" target="_blank">SI</a>
+                </p>
+            </div>
+        </div>
+        
+        <div class="content wrapper">
+            <!-- Introduction Section -->
+            <h2 id="figure-1">Evolution of Cooperation in Games of Multiple Contexts with Vector Payoff</h2>
+            
+            <p>As an example, we show individuals in a population engage in games across two contexts in the above figures. In each context, every player employs a specific strategy, which can be either cooperation (C) or defection (D). At each time step, individuals interact with others, and payoffs are calculated in each context based on the corresponding payoff matrices. After the interactions, individuals use non-dominated ranking to update their strategies. Specifically, the focal individual (Bob) will adopt the strategy of a reference individual (Alice or Charlie) if and only if, the reference individual is not worse in all contexts and better in at least one context (denoted by $\succ$; the reverse is denoted by $\prec$). In this example, Bob will imitate Alice, as she has a higher payoff in context 2 and an equal payoff in context 1. However, Bob will not imitate Charlie, since Charlie's payoff is higher in one context but lower in the other (denoted by $\sim$).</p>
+
+            <h2>Intuition from a Simple Setting</h2>
+
+            <img src="/static/figures/figure_4.png" alt="figure_4" style="width: 50%; height: auto; margin-left: 20%; margin-right: 30%;">
+            
+            <p>Each block represents a state, with the background color indicating the most dominant strategy in the population. Each arrow represents a possible transition. States with dotted line borders are non-deterministic, indicating they have multiple attractors. States with dashed line borders are deterministic, meaning they have a unique attractor. States with solid line borders belong to closed subsets. The first game is the Prisoner's Dilemma, and the second game is the Snowdrift game. It is possible for the population to fall into gridlock, even when all four strategies are present initially. If the transition indicated by arrow A occurs, strategy DD vanishes, leaving strategy CD and DC as non-comparable, which causes the system to enter a gridlock state. Similarly, if the transition indicated by arrow B occurs, strategy DC vanishes, resulting in a gridlock between strategies CC and DD. Alternatively, the system may enter a closed subset of size two, where perpetual oscillations occur. The payoff matrices are $(R_1, S_1, T_1, P_1) = (1, -0.7, 1.7, 0)$ for the Prisoner's Dilemma game and $(R_2, S_2, T_2, P_2) = (1, 0.875, 1.125, 0)$ for the Snowdrift game.</p>
+            
+            <!-- Legend Section -->
+            <h2>Visualization: Attraction Basins of Each Closed Subset</h2>
+            
+            <ul>
+                <li><strong style="color: #FF9697;">Red</strong> <strong>nodes</strong>: states belong to closed subsets (attractors).</li>
+                <li><strong style="color: #88b7e0;">Blue</strong> <strong>nodes</strong>: deterministic states with unique attractors.</li>
+                <li><strong style="color: #A1D99C;">Green</strong> <strong>nodes</strong>: non-deterministic states with multiple attractors.</li>
+                <li><strong>Edges</strong>: possible transitions from transient states to attractors.</li>
+                <li><strong>Labels</strong>: population states. For example, $(n_{\text{C}}, n_{\text{D}})$ for single-context games, $(n_{\text{CC}}, n_{\text{CD}}, n_{\text{DC}}, n_{\text{DD}})$ for 2-context games, and $(n_{\text{CCC}}, n_{\text{CCD}}, \ldots, n_{\text{DDD}})$ for 3-context games.</li>
+            </ul>
+            
+            <div>The maximum number of contexts is set to <strong>3</strong> to ensure computational feasibility. The recommended population sizes are <strong>8</strong> or <strong>10</strong> for 2-context games, and <strong>6</strong> for 3-context games.</div>
+
+            <!-- Form 1: Markov Chain Visualization -->
+            <form id="param-form">
+                <label for="K">Number of game contexts:</label>
+                <select id="K" name="K" required>
+                    <option value="" disabled selected></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+
+                <label for="N">Population Size:</label>
+                <input type="text" id="N" name="N" min="1" required>
+
+                <div id="payoff-matrices"></div>
+
+                <div style="margin-top: 10px;"></div>
+                
+                <button type="submit">Submit</button>
+            </form>
+
+            <!-- ODE Simulation Section -->
+            <h2>Visualization: Deterministic Dynamics in Infinitely Large Well-mixed Populations</h2>
+
+            <div>Predefined initial states $(x_{\text{CC}}, x_{\text{CD}}, x_{\text{DC}}, x_{\text{DD}})$ for 2-context games in simplex figures:
+                
+            </div>
+            <div>
+                $\left(\frac{1}{3}, \frac{1}{3}, \frac{1}{3}, 0\right)$, $\left(\frac{1}{3}, \frac{1}{3}, 0, \frac{1}{3}\right)$, $\left(\frac{1}{3}, 0, \frac{1}{3}, \frac{1}{3}\right)$, $\left(0, \frac{1}{3}, \frac{1}{3}, \frac{1}{3}\right)$, and $\left(\frac{1}{4}, \frac{1}{4}, \frac{1}{4}, \frac{1}{4}\right)$
+            </div>
+            <div style="margin-top: 15px;"></div>
+
+            <!-- Form 2: ODE Simulation -->
+            <div class="param-form-2" action="/submit" method="post">
+                <form id="param-form-2">
+                    <label for="Z">Number of contexts:</label>
+                    <select id="Z" name="Z" required>
+                        <option value="" disabled selected></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    
+                    <label for="Time">Length of simulation time:</label>
+                    <input type="text" id="Time" name="Time" value="10" step="any" required>
+
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div>
+                            <label for="u">Probability of changing one strategy - $u$:</label>
+                            <input type="text" id="u" name="u" value="0" step="any" required>
+                            <span>(only one mutation at a time)</span>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div>
+                            <label for="v">Probability of copying other strategies - $v$:</label>
+                            <input type="text" id="v" name="v" value="0" step="any" required>
+                            <span>(bystander effect or spillover effect)</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="tag">Type of figure:</label>
+                        <select id="tag" name="tag" required>
+                            <option value="stackplot">stackplot</option>
+                            <option value="simplex">simplex</option>
+                        </select>
+                        <span>(Simplex plotting is only available for 2-context games)</span>
+                    </div>
+
+                    <div id="payoff-matrices_infty"></div>
+                    <div id="Lambda-inputs"></div>
+                    <div id="x0-inputs"></div>
+
+                    <div style="margin-top: 10px;"></div>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+            <!-- SVG Container for D3 Visualization -->
+            <svg width="100%" height="100%" viewBox="0 0 4000 3000"></svg>
+
+            <!-- Include JavaScript -->
+            <script src="/static/script.js"></script>
+        </div>
+    </article>
+</body>
+</html>

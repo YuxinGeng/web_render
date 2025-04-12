@@ -1,0 +1,362 @@
+/* styles for D3.js */
+.node {
+    stroke: #fff;
+    stroke-width: 1.5px;
+}
+
+.link {
+    stroke-opacity: 0.6;
+}
+
+text {
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    font-size: 16px;
+}
+
+img, video, table {
+    max-width: 100%;
+}
+
+/* a, a:hover, a:visited {
+    text-decoration: none;
+    color: #0070f3;
+} */
+
+p > a:hover, li > a:hover, td > a:hover {
+    text-decoration: underline;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 1.5em 0 0.75em;
+}
+
+h1 {
+    font-size: 2em;
+    margin-top: 0.5em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.25em;
+}
+
+p, ul, ol, td {
+    margin-bottom: 1em;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+/* MathJax formula styling */
+.MathJax, .mjx-math {
+    font-family: 'Times New Roman', Times, serif !important;
+    font-size: 1em !important;
+}
+
+.mjx-inline {
+    vertical-align: middle !important;
+}
+
+/* Core layout classes */
+.wrapper {
+    margin: 0 auto;
+    max-width: 75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (min-width: 1025px) {
+    .wrapper {
+        padding-left: 2rem;
+        padding-right: 2rem
+    }
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    row-gap: .5em
+}
+
+.logo, .logo:hover, .logo:visited {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #111;
+    margin: .5em 1em 0 0
+}
+
+.logo img, .logo:hover img, .logo:visited img {
+    width: 3em;
+    height: 3em;
+    flex-shrink: 0;
+    margin-right: .8em;
+    border-radius: .2rem
+}
+
+.logo div, .logo:hover div, .logo:visited div {
+    display: flex;
+    flex-direction: column
+}
+
+.logo .title, .logo:hover .title, .logo:visited .title {
+    font-size: 1.3em;
+    font-weight: 500
+}
+
+.logo .slogan, .logo:hover .slogan, .logo:visited .slogan {
+    font-size: .9em;
+    color: #888;
+    margin-bottom: .2em
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1em;
+    row-gap: .4em
+}
+
+nav a {
+    display: inline-block;
+    padding: .5em;
+    margin: -.2em -.5em -.5em;
+    font-weight: 400;
+    color: #000;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #0070f3;
+    text-decoration: underline;
+}
+
+/* Cover section */
+.cover {
+    margin-bottom: 1em;
+    background: #fff;
+    color: #000;
+    padding: .5em 0 1.5em;
+    text-align: center;
+    font-size: 1.2em;
+    cursor: default
+}
+
+.cover h1, .cover p {
+    text-align: center
+}
+
+.cover .authors .author {
+    display: inline-block;
+    margin: 0 .5em .3em
+}
+
+.cover .authors a {
+    color: #000;
+    text-decoration: none;
+}
+
+.cover .authors a:hover {
+    color: #0070f3;
+    text-decoration: underline;
+}
+
+.cover .venues {
+    margin: 1em 0;
+    color: #ddd
+}
+
+.cover .image {
+    margin: 1.4em 0 .5em
+}
+
+.cover .image > img, .cover .image > video {
+    width: 100%
+}
+
+.cover .buttons {
+    display: block;
+    margin: 0;
+    font-size: 1.1rem
+}
+
+.cover .buttons a {
+    display: inline-block;
+    padding: .5em .8em .4em;
+    margin: 1em .5em .5em;
+    background: #fff;
+    color: #000;
+    border: 2px solid #000;
+    transition: all .2s;
+    text-decoration: none;
+}
+
+.cover .buttons a:hover {
+    background: #fff;
+    color: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    text-decoration: none
+}
+
+.content p img {
+    margin: 1em 0
+}
+
+/* Form styling */
+#param-form {
+    margin: 0px;
+    font-family: Arial, sans-serif;
+}
+
+#payoff-matrices fieldset {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: #fff;
+}
+
+#payoff-matrices legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+#payoff-matrices input[type="text"] {
+    padding: 5px;
+    margin: 5px 10px 5px 0;
+    width: 100px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#K, #N, #Z, #tag {
+    padding: 5px;
+    margin: 5px 10px 5px 0;
+    width: 75px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#tag {
+    width: 100px;
+}
+
+#payoff-matrices_infty fieldset {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: #fff;
+}
+
+#payoff-matrices_infty legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+#payoff-matrices_infty input[type="text"] {
+    padding: 5px;
+    margin: 5px 10px 5px 0;
+    width: 100px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#Time, #u, #v {
+    padding: 5px;
+    margin: 5px 10px 5px 0;
+    width: 75px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#Lambda-inputs input[type="text"] {
+    padding: 5px;
+    margin: 5px 10px 5px 0;
+    width: 100px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#x0-inputs input[type="text"] {
+    padding: 5px;
+    margin: 5px 10px 5px 0;
+    width: 100px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#x0-inputs fieldset, #Lambda-inputs fieldset {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: #fff;
+}
+
+#x0-inputs legend, #Lambda-inputs legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+button[type="submit"] {
+    background-color: #0066cc;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button[type="submit"]:hover {
+    background-color: #005bb5;
+}
+
+/* Remove arrows from number inputs */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    appearance: textfield;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+}
